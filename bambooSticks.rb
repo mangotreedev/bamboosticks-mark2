@@ -333,22 +333,22 @@ run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip'
 unless options['api']
   run 'rm -rf app/assets/stylesheets'
 
-  run 'mv app/assets/bamboosticks-master/bootstrap/stylesheets app/assets/stylesheets' if bootstrap_option
-  run 'mv app/assets/bamboosticks-master/vanilla-scss/stylesheets app/assets/stylesheets' if no_framework_option
+  run 'mv app/assets/bamboosticks-mark2-master/bootstrap/stylesheets app/assets/stylesheets' if bootstrap_option
+  run 'mv app/assets/bamboosticks-mark2-master/vanilla-scss/stylesheets app/assets/stylesheets' if no_framework_option
 
   if tailwind_option
-    run 'mv app/assets/bamboosticks-master/tailwind/stylesheets app/assets/stylesheets'
-    run 'mv app/assets/bamboosticks-master/tailwind/config/simple_form_tailwind.rb config/initializers/simple_form_tailwind.rb'
+    run 'mv app/assets/bamboosticks-mark2-master/tailwind/stylesheets app/assets/stylesheets'
+    run 'mv app/assets/bamboosticks-mark2-master/tailwind/config/simple_form_tailwind.rb config/initializers/simple_form_tailwind.rb'
   end
 
   if tailwind_option || no_framework_option
     run 'mkdir -p app/javascript/components'
-    run 'mv app/assets/bamboosticks-master/tailwind/javascript/initAlerts.js app/javascript/components/initAlerts.js'
+    run 'mv app/assets/bamboosticks-mark2-master/tailwind/javascript/initAlerts.js app/javascript/components/initAlerts.js'
   end
 end
 
-run 'mv app/assets/bamboosticks-master/.github .github'
-run 'rm -rf app/assets/bamboosticks-master'
+run 'mv app/assets/bamboosticks-mark2-master/.github .github'
+run 'rm -rf app/assets/bamboosticks-mark2-master'
 run 'rm -rf app/assets' if options['api']
 
 if !devise_option && !options['api']

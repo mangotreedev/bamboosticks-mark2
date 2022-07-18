@@ -86,7 +86,7 @@ def setup_tailwind_framework(devise_option)
     @import "fonts";
   SCSS
 
-  append_file 'app/javascript/packs/application.js', <<~JS
+  append_file 'app/javascript/application.js', <<~JS
     // Tailwind import
     import "../stylesheets/application"
 
@@ -110,7 +110,7 @@ def setup_vanilla_frontend(devise_option)
   run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/vanilla-scss/layout/_navbar.html.erb > app/views/shared/_navbar.html.erb' if devise_option
   run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/vanilla-scss/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
 
-  append_file 'app/javascript/packs/application.js', <<~JS
+  append_file 'app/javascript/application.js', <<~JS
     // TODO: Refactor this with stimulus
     import initAlerts from '../components/initAlerts';
 

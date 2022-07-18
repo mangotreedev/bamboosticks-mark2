@@ -439,7 +439,7 @@ after_bundle do
 
   # Bullet Configuration
   ########################################
-  inject_into_file 'config/environments/development.rb', after: 'config.file_watcher = ActiveSupport::EventedFileUpdateChecker' do
+  inject_into_file 'config/environments/development.rb', after: 'config.assets.quiet = true' do
     <<~RUBY
 
       # Bullet for development setup

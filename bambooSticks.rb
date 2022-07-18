@@ -361,13 +361,6 @@ unless options['api']
   bootstrap_option = selected_framework == 'bootstrap'
   tailwind_option = selected_framework == 'tailwind'
   no_framework_option = selected_framework == 'no-framework'
-
-  if bootstrap_option
-    say "Which version of Bootstrap do you want to use?"
-    say '1 - Bootstrap v5.0'
-    say '2 - Bootstrap v4.6'
-    bootstrap_last_version = pick_bootstrap_version
-  end
 end
 
 say 'Would you like to implement devise for authentication? [yn] 🤠'

@@ -459,6 +459,12 @@ if !devise_option && !options['api']
   gsub_file('app/assets/stylesheets/components/_index.scss', '@import "navbar";', '')
 end
 
+inject_into_file "config/initializers/assets.rb", before: "# Precompile additional assets." do
+  <<~RUBY
+    Rails.application.config.assets.paths << Rails.root.join("node_modules")
+  RUBY
+end
+
 # Dev environment
 ########################################
 gsub_file('config/environments/development.rb', /config\.assets\.debug.*/, 'config.assets.debug = false')

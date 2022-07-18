@@ -431,7 +431,6 @@ after_bundle do
   setup_vanilla_frontend(devise_option) if no_framework_option
   setup_devise_authentication if devise_option
   setup_pundit_authorization if pundit_option
-  setup_stimulus_framework if stimulus_option
 
   # Environments
   ########################################

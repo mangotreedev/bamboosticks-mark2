@@ -276,7 +276,7 @@ run "if uname | grep -q 'Darwin'; then pgrep spring | xargs kill -9; fi"
 inject_into_file 'Gemfile', before: 'group :development, :test do' do
   <<~RUBY
     gem 'autoprefixer-rails'
-    gem "font-awesome-sass", "~> 6.1"
+    gem "font-awesome-sass", "~> 6.1.1"
     gem "simple_form", github: "heartcombo/simple_form"
   RUBY
 end unless options['api']

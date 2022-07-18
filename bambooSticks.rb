@@ -430,7 +430,7 @@ gsub_file("Gemfile", '# gem "sassc-rails"', 'gem "sassc-rails"')
 # Assets & GitHub Actions/Workflow
 ########################################
 run 'rm -rf vendor'
-run 'curl -L https://github.com/mangotreedev/bamboosticks/archive/master.zip > stylesheets.zip'
+run 'curl -L https://github.com/mangotreedev/bamboosticks-mark2/archive/master.zip > stylesheets.zip'
 run 'unzip stylesheets.zip -d app/assets && rm stylesheets.zip'
 
 unless options['api']
@@ -483,7 +483,7 @@ end
 # README
 ########################################
 run 'rm -rf README.md'
-run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/project_readme.md > README.md'
+run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/project_readme.md > README.md'
 
 # Generators
 ########################################
@@ -644,6 +644,10 @@ after_bundle do
             "  host: 127.0.0.1\n  username: postgres\n  password: postgres\
             \n\n# As with config\/credentials.yml, you never want to store sensitive information,")
 
+  # Heroku
+  ########################################
+  run "bundle lock --add-platform x86_64-linux"
+
   # Dotenv
   ########################################
   run 'touch .env'
@@ -651,18 +655,16 @@ after_bundle do
   # bin/setup
   ########################################
   run 'rm bin/setup'
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/setup > bin/setup'
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/setup > bin/setup'
   run 'chmod +x ./bin/setup'
 
   # Rubocop
   ########################################
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/.rubocop.yml > .rubocop.yml'
-
-  # Fix puma config
-  gsub_file('config/puma.rb', 'pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }', '# pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }')
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/.rubocop.yml > .rubocop.yml'
 
   # Git
   ########################################
+  git :init
   git add: '.'
   git commit: "-m 'ARCH: Base rails app generation using BambooSticks'"
 end

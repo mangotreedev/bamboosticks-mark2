@@ -17,7 +17,7 @@ If you would like to see something added in or want to understand more on why we
 rails new \
   -d postgresql \
   -j webpack \
-  -m https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/bambooSticks.rb \
+  -m https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/bambooSticks.rb \
   YOUR_RAILS_APP_NAME
 ```
 

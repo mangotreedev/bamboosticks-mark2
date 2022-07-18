@@ -1,4 +1,7 @@
-# MangoTree Rails Template: BambooSticks
+# 🚧 UNDER CONSTRUCTION 🚧
+Renovations being made to update Bamboosticks for Rails 7, will sunset [Bamboosticks](https://github.com/mangotreedev/bamboosticks)
+
+# MangoTree Rails Template: BambooSticks-Mark2
 
 ## Description :speak_no_evil:
 BambooSticks is the template we use at MangoTree to generate RoR applications with a basic setup suitable for most web applications.  We hope this template supports you as you begin your application development, just as bamboo sticks support a fledgling plant.
@@ -10,7 +13,14 @@ If you would like to see something added in or want to understand more on why we
 ![Alt text](https://res.cloudinary.com/nico1711/image/upload/v1607220863/bamboo_clqlng.jpg "bamboo_shoots")
 
 ## Command to run :running:
-`rails new --database postgresql -m https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/bambooSticks.rb YOUR_RAILS_APP_NAME`
+```bash
+rails new \
+  -d postgresql \
+  -j webpack \
+  -m https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/bambooSticks.rb \
+  YOUR_RAILS_APP_NAME
+```
+
 
 ## Added gems :gem:
 - [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails) - a tool to parse CSS and add vendor prefixes to CSS rules

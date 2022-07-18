@@ -111,19 +111,10 @@ def setup_vanilla_frontend(devise_option)
   run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/vanilla-scss/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
 
   append_file 'app/javascript/packs/application.js', <<~JS
-
-    // ----------------------------------------------------
-    // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-    // WRITE YOUR OWN JS STARTING FROM HERE 👇
-    // ----------------------------------------------------
-
-    // Internal imports, e.g:
-    // import { initSelect2 } from '../components/init_select2';
+    // TODO: Refactor this with stimulus
     import initAlerts from '../components/initAlerts';
 
     document.addEventListener('turbolinks:load', () => {
-      // Call your functions here, e.g:
-      // initSelect2();
       initAlerts();
     });
   JS

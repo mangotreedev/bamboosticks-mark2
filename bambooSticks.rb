@@ -307,12 +307,6 @@ inject_into_file 'Gemfile', after: 'group :development, :test do' do
   RUBY
 end
 
-inject_into_file 'Gemfile', after: "gem 'selenium-webdriver'" do
-  <<-RUBY
-    gem 'capybara-screenshot'
-  RUBY
-end
-
 inject_into_file 'Gemfile', after: 'group :development do' do
   <<-RUBY
     gem 'bullet'

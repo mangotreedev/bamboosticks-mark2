@@ -370,12 +370,6 @@ if devise_option
   pundit_option = pick_simple_option
 end
 
-unless options['api']
-  say 'Would you like to implement stimulus for javascript? [yn] 🥳'
-  stimulus_option = pick_simple_option
-  say
-end
-
 run "if uname | grep -q 'Darwin'; then pgrep spring | xargs kill -9; fi"
 
 # GEMFILE

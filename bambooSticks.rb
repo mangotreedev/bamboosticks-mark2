@@ -335,26 +335,14 @@ def pick_framework
   end
 end
 
-def pick_bootstrap_version
-  option = ask '>> '
-
-  case option
-  when '1' then return true
-  when '2' then return false
-  else
-    say 'Invalid - please pick a number from the list'
-    pick_bootstrap_version
-  end
-end
-
 say
 say
-say '-- Welcome to 🎍 BambooSticks 🎍: A RoR Template! --'
+say '-- Welcome to 🎍 BambooSticks Mark 2 🎍: A RoR Template! --'
 say 'a setup developed by MangoTree 🥭🌴 to support you in your development'
 
-if options['api']
-  say '🤖 You added the API option 🤖'
-end
+say
+say '🤖 You marked the API flag for the app 🤖' if options['api']
+say '📦 You marked the webpack flag for the app 📦' if options['webpack']
 
 say 'Tell us a bit about how you want to set up your app:'
 say

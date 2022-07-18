@@ -131,6 +131,28 @@ def setup_devise_authentication
   rails_command 'db:migrate'
   run 'rails generate devise:views' unless options['api']
 
+  gsub_file(
+    "app/views/devise/registrations/new.html.erb",
+    "<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>",
+    "<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>"
+  )
+  gsub_file(
+    "app/views/devise/sessions/new.html.erb",
+    "<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>",
+    "<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>"
+  )
+  link_to = <<~HTML
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  HTML
+  button_to = <<~HTML
+    <div class="d-flex align-items-center">
+      <div>Unhappy?</div>
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
+    </div>
+  HTML
+  gsub_file("app/views/devise/registrations/edit.html.erb", link_to, button_to)
+
+
   # App controller
   inject_into_file 'app/controllers/application_controller.rb', after: 'ActionController::Base' do
     <<-RUBY
@@ -164,11 +186,10 @@ def setup_pundit_authorization
   run 'rm app/controllers/application_controller.rb'
   file 'app/controllers/application_controller.rb', <<~RUBY
     class ApplicationController < ActionController::Base
-    #{  "protect_from_forgery with: :exception\n" if Rails.version < "5.2"}  before_action :authenticate_user!
       add_flash_types :info, :success
-
       include Pundit
 
+      before_action :authenticate_user!
       # Pundit: white-list approach.
       after_action :verify_authorized, except: :index, unless: :skip_pundit?
       after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?

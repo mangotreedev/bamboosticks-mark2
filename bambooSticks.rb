@@ -37,8 +37,8 @@ def setup_bootstrap_framework(devise_option)
   ########################################
   run 'yarn add @popperjs/core bootstrap'
 
-  append_file 'app/javascript/packs/application.js', <<~JS
-    import "bootstrap";
+  append_file "app/javascript/application.js", <<~JS
+    import "bootstrap"
   JS
 end
 

@@ -43,8 +43,8 @@ Insert App Summary (1-2 paragraphs) and list out main facets of the application 
 ## Environment Setup
 
 This application is using:
-* Ruby 2.6.6
-* Rails 6.1.3
+* Ruby X.Y.Z
+* Rails A.B.C
 <p>
   🛑 TODO: PLEASE CUSTOMIZE AS NEEDED
 </p>

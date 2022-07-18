@@ -377,8 +377,8 @@ run "if uname | grep -q 'Darwin'; then pgrep spring | xargs kill -9; fi"
 inject_into_file 'Gemfile', before: 'group :development, :test do' do
   <<~RUBY
     gem 'autoprefixer-rails'
-    gem 'font-awesome-sass'
-    gem 'simple_form'
+    gem "font-awesome-sass", "~> 6.1"
+    gem "simple_form", github: "heartcombo/simple_form"
   RUBY
 end unless options['api']
 
@@ -391,44 +391,41 @@ end if devise_option
 inject_into_file 'Gemfile', before: 'group :development, :test do' do
   <<~RUBY
     gem 'pundit'
-
   RUBY
 end if pundit_option
 
 inject_into_file 'Gemfile', after: 'group :development, :test do' do
   <<-RUBY
+    gem 'pry-byebug'
+    gem 'pry-rails'
+    gem 'dotenv-rails'
 
-  gem 'pry-byebug'
-  gem 'pry-rails'
-  gem 'dotenv-rails'
-
-  # Testing Suite
-  gem 'rspec-rails'
-  gem 'database_cleaner-active_record'
-  gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
-  gem 'timecop'
-  gem 'simplecov'
+    # Testing Suite
+    gem 'rspec-rails'
+    gem 'database_cleaner-active_record'
+    gem 'shoulda-matchers'
+    gem 'factory_bot_rails'
+    gem 'timecop'
+    gem 'simplecov'
   RUBY
 end
 
 inject_into_file 'Gemfile', after: "gem 'selenium-webdriver'" do
   <<-RUBY
-
-  gem 'capybara-screenshot'
+    gem 'capybara-screenshot'
   RUBY
 end
 
 inject_into_file 'Gemfile', after: 'group :development do' do
   <<-RUBY
-
-  gem 'bullet'
-  # Comment in when ready to see page load times
-  # gem 'rack-mini-profiler'
+    gem 'bullet'
+    # Comment in when ready to see page load times
+    # gem 'rack-mini-profiler'
   RUBY
 end
 
-gsub_file('Gemfile', /# gem 'redis'/, "gem 'redis'")
+gsub_file("Gemfile", /# gem 'redis'/, "gem 'redis'")
+gsub_file("Gemfile", '# gem "sassc-rails"', 'gem "sassc-rails"')
 
 # Assets & GitHub Actions/Workflow
 ########################################

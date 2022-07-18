@@ -46,8 +46,8 @@ def setup_tailwind_framework(devise_option)
   # Flashes & Navbar
   ########################################
   run 'mkdir app/views/shared'
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/tailwind/layout/_navbar.html.erb > app/views/shared/_navbar.html.erb' if devise_option
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/tailwind/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/tailwind/layout/_navbar.html.erb > app/views/shared/_navbar.html.erb' if devise_option
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/tailwind/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
 
   # Setup + Dependencies
   ########################################
@@ -74,8 +74,8 @@ def setup_tailwind_framework(devise_option)
   JS
 
   run 'mkdir app/javascript/stylesheets'
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/tailwind/config/tailwind.config.js > app/javascript/stylesheets/tailwind.config.js'
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/tailwind/config/_fonts.scss > app/javascript/stylesheets/_fonts.scss'
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/tailwind/config/tailwind.config.js > app/javascript/stylesheets/tailwind.config.js'
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/tailwind/config/_fonts.scss > app/javascript/stylesheets/_fonts.scss'
   run 'touch app/javascript/stylesheets/application.scss'
 
   append_file 'app/javascript/stylesheets/application.scss', <<~SCSS
@@ -87,15 +87,10 @@ def setup_tailwind_framework(devise_option)
   SCSS
 
   append_file 'app/javascript/packs/application.js', <<~JS
-
-    // ----------------------------------------------------
-    // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-    // WRITE YOUR OWN JS STARTING FROM HERE 👇
-    // ----------------------------------------------------
-
     // Tailwind import
     import "../stylesheets/application"
 
+    // TODO: Refactor this with stimulus
     // Internal imports, e.g:
     // import { initSelect2 } from '../components/init_select2';
     import initAlerts from '../components/initAlerts';
@@ -112,8 +107,8 @@ def setup_vanilla_frontend(devise_option)
   # Flashes & Navbar
   ########################################
   run 'mkdir app/views/shared'
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/vanilla-scss/layout/_navbar.html.erb > app/views/shared/_navbar.html.erb' if devise_option
-  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks/master/vanilla-scss/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/vanilla-scss/layout/_navbar.html.erb > app/views/shared/_navbar.html.erb' if devise_option
+  run 'curl -L https://raw.githubusercontent.com/mangotreedev/bamboosticks-mark2/master/vanilla-scss/layout/_flashes.html.erb > app/views/shared/_flashes.html.erb'
 
   append_file 'app/javascript/packs/application.js', <<~JS
 

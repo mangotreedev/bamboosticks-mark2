@@ -1,5 +1,6 @@
 # 🚧 UNDER CONSTRUCTION 🚧
-Renovations being made to update Bamboosticks for Rails 7, will sunset [Bamboosticks](https://github.com/mangotreedev/bamboosticks)
+Add in auto release tasks such as rails db migrate into proc file, see link : https://scottbartell.com/2020/01/22/automating-rails-database-migrations-on-heroku/
+\Renovations being made to update Bamboosticks for Rails 7, will sunset [Bamboosticks](https://github.com/mangotreedev/bamboosticks)
 
 # MangoTree Rails Template: BambooSticks-Mark2
 
